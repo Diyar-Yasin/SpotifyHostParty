@@ -1,9 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
+import HomePage from "./HomePage";
 
 export default class App extends React.Component {
     render() {
-        return ( <h1>Testing</h1> );
+        return (
+            <HomePage />
+        );
     }
 }
 
