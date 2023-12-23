@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { FormLabel, FormControl, FormControlLabel, Radio, RadioGroup, Grid, Typography, TextField, Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateRoomPage = () => {
     const DEFAULT_VOTES = 2;
     const [ votesToSkipSong, setVotesToSkipSong ] = useState( DEFAULT_VOTES );
-    const [ guestsCanPause, setGuestsCanPause ] = useState( true );
-    
+    const [ guestsCanPause, setGuestsCanPause ] = useState( false );
+    const navigate = useNavigate();
+
     const handleVotesChanged = ( e ) => { setVotesToSkipSong( e.target.value ); }
     const handleGuestsCanPauseChanged = ( e ) => { setGuestsCanPause( e.target.value ); }
 
@@ -20,7 +21,9 @@ const CreateRoomPage = () => {
             })
         };
 
-        fetch( '/api/create-room', requestOptions ).then( ( response ) => response.json() ).then( ( data ) => console.log( data ) );
+        fetch( '/api/create-room', requestOptions ).then( ( response ) => response.json() ).then( ( data ) => 
+             navigate( '/room/' + data.code )
+        );
     }
 
     return (
