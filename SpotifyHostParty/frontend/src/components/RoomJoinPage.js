@@ -1,8 +1,8 @@
 import React from "react";
 
-function RoomJoinPage() {
+const RoomJoinPage = () => {
     return (
-        <p>This is the RoomJoinPage.</p>
+        <p>YEET</p>
     );
 }
 
