@@ -8,7 +8,7 @@ const RoomJoinPage = () => {
     const navigate = useNavigate();
     const handleTextFieldChanged = ( e ) => { setRoomCode( e.target.value ); }
 
-    const handleEnterRoomButtonClicked = ( e ) => {
+    const handleEnterRoomButtonClicked = () => {
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
